@@ -53,7 +53,7 @@ async fn test_something_async() {
     let secret = env::var("API_SECRET").expect("Api Key Secret doesn't exist yet, please add");
     let luno = Luno::init(key, secret);
     let balance = luno.get_all_balance().await;
-    println!("Balances {:?}", tickers)
+    println!("Balances {:?}", balance)
 }
 ```
 
