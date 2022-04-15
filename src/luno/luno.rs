@@ -1,4 +1,4 @@
-///! Rust Luno Api client
+///! Rust Luno Api client (async rust)
 use super::error::ApiError;
 use reqwest::{header::HeaderMap, Method, Response, Url};
 use serde::Deserialize;
@@ -18,7 +18,7 @@ const DEFAULT_BASE_URL: &str = "https://api.luno.com";
 /// USAGE
 ///  requires a key and secret that can be found in your luno account settings
 /// ```rust
-/// use luno_rust_api::Luno;
+/// extern crate luno_rust_api::Luno;
 /// #[tokio::test]
 /// async fn main(){
 ///  dotenv::dotenv().ok();
