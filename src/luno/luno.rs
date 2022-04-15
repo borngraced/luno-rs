@@ -7,6 +7,27 @@ use std::collections::HashMap;
 use std::env;
 const DEFAULT_BASE_URL: &str = "https://api.luno.com";
 
+
+
+/// INSTALLATION
+/// Add to Cargo.toml
+/// -> luno-rust-api = "0.0.1"
+/// 
+/// 
+/// 
+/// USAGE
+///  requires a key and secret that can be found in your luno account settings
+/// ```rust
+/// use luno_rust_api::Luno;
+/// #[tokio::test]
+/// async fn main(){
+///  dotenv::dotenv().ok();
+///  let key = env::var("API_KEY").expect("Api Key doesn't exist yet, please add");
+///  let secret = env::var("API_SECRET").expect("Api Key Secret doesn't exist yet, please add");
+///  let init = Luno::init(key, secret);
+///  let tickers = init.get_all_balance().await;
+/// }
+/// ```
 #[derive(Debug)]
 pub struct Luno {
     pub base_url: String,
@@ -70,7 +91,7 @@ impl Luno {
                 let res = res.text().await;
                 match res {
                     Ok(e) => {
-                        let e: HashMap<String, Vec<Balance>> = from_str(&format!("{}", e)).unwrap();
+                        let e: HashMap<String, Vec<_>> = from_str(&e).unwrap();
                         Ok(e.get("balance").unwrap().to_vec())
                     }
                     Err(err) => Err(ApiError {

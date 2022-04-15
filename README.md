@@ -1,5 +1,7 @@
 # Luno-API-Client-Rust (async)
-# V.0.01 beta
+
+# V.0.0.1 beta
+
 https://www.luno.com/en/developers/api
 
 The Luno API provides developers with a wealth of financial information provided through the Luno platform. Through this secure system developers can:
@@ -15,7 +17,6 @@ The Async Rust Luno API brings the world of Bitcoin and Ethereum to your doorste
 
 This API is still in beta phase and not ready to be used in a live environment
 
-
 # Authentication
 
 Some API calls require your application to authenticate itself. This is done using an API key associated with your account. You can create an API key by visiting the API Keys section on the settings page.
@@ -26,9 +27,10 @@ API requests are authenticated using HTTP basic authentication with the key id a
 
 Each API key is granted a set of permissions when it is created. The key can only be used to call the permitted API functions.
 
+# USAGE
 
-# USAGE #
-# Dependencies 
+# Dependencies
+
 1. reqwest
 2. serde
 3. serde_json
@@ -37,13 +39,14 @@ Each API key is granted a set of permissions when it is created. The key can onl
 6. dotenv
 
 ## Configuration
-1. Get your api key from luno
-2. configure your env with: 
-    ##### API_KEY=myapikey
-    ##### API_SECRET=myapisecret
 
+1. Get your api key from luno
+2. configure your env with:
+   ##### API_KEY=myapikey
+   ##### API_SECRET=myapisecret
 
 ## INITIALIZING LUNO API FROM RUST APP
+
 ```rust
 #[tokio::test]
 async fn test_something_async() {
@@ -58,6 +61,7 @@ async fn test_something_async() {
 ```
 
 ### Available METHODS regularly (more will be added until completion)
+
 1. create_account()
 2. get_ticker(pair: `"XBTNGN"`)
 3. get_all_tickers()
@@ -66,6 +70,6 @@ async fn test_something_async() {
 6. get_full_order_book(pair: `"XBTNGN"`)
 7. get_top_order_book(pair: `"XBTNGN"`)
 
+# CONTRIBUTING
 
-# CONTRIBUTING #
-Make a pull request and make us better :)
+make us better :)
