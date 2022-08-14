@@ -13,9 +13,8 @@ The Luno API provides developers with a wealth of financial information provided
     Send and receive Bitcoin and Ethereum
     Generate Bitcoin and Ethereum wallet addresses
 
-The Async Rust Luno API brings the world of Bitcoin and Ethereum to your doorstep.
+The Async Rust Luno API client brings the world of Bitcoin and Ethereum to your doorstep.
 
-This API is still in beta phase and not ready to be used in a live environment
 
 # Authentication
 
@@ -34,42 +33,37 @@ Each API key is granted a set of permissions when it is created. The key can onl
 1. reqwest
 2. serde
 3. serde_json
-4. futures
-5. tokio
-6. dotenv
+4. tokio
 
 ## Configuration
 
-1. Get your api key from luno
-2. configure your env with:
+1. Get your api key and secret from luno.com
+2. Create .env file in your project route and configure with:
    ##### API_KEY=myapikey
    ##### API_SECRET=myapisecret
-
-## INITIALIZING LUNO API FROM RUST APP
+3. import Luno client to your project and initialize `use luno_rust_api::Luno;`
 
 ```rust
-#[tokio::test]
-async fn test_something_async() {
-    dotenv::dotenv().ok();
-    // for some reason, test cannot be async
-    let key = env::var("API_KEY").expect("Api Key doesn't exist yet, please add");
-    let secret = env::var("API_SECRET").expect("Api Key Secret doesn't exist yet, please add");
-    let luno = Luno::init(key, secret);
-    let balance = luno.get_all_balance().await;
-    println!("Balances {:?}", balance)
+#[tokio::test] // any other async runtime can be used, not limited to tokio
+async fn test_luno_async() {
+	dotenv::dotenv().ok();
+	let key = env::var("API_KEY").expect("Api Key doesn't exist yet, please add");
+	let secret = env::var("API_SECRET").expect("Api Key Secret doesn't exist yet, please add");
+	let luno = Luno::init(key, secret).await;
+	let tickers = luno.get_all_balance().await;
+	println!("{:#?}", json!(tickers.as_ref().unwrap())); // data can be serialized to json)
+	assert_eq!(true, tickers.is_ok());
 }
 ```
 
 ### Available METHODS regularly (more will be added until completion)
 
 1. create_account()
-2. get_ticker(pair: `"XBTNGN"`)
-3. get_all_tickers()
-4. get_all_balance()
-5. get_all_tickers()
-6. get_full_order_book(pair: `"XBTNGN"`)
-7. get_top_order_book(pair: `"XBTNGN"`)
+2. get_all_balance()
+3. get_ticker(pair: `"XBTNGN"`)
+4. get_all_tickers()
+5. get_full_order_book(pair: `"XBTNGN"`)
+6. get_top_order_book(pair: `"XBTNGN"`)
 
 # CONTRIBUTING
-
 make us better :)
