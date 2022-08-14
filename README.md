@@ -1,20 +1,5 @@
-# Luno-API-Client-Rust (async)
-
-# V.0.0.1 beta
-
+# Luno API Client(wrapper)
 https://www.luno.com/en/developers/api
-
-The Luno API provides developers with a wealth of financial information provided through the Luno platform. Through this secure system developers can:
-
-    Create accounts for trading in cryptocurrencies
-    Access current and historic cryptocurrency market data
-    Submit trade orders and view order status
-    Buy and sell Bitcoin and Ethereum
-    Send and receive Bitcoin and Ethereum
-    Generate Bitcoin and Ethereum wallet addresses
-
-The Async Rust Luno API client brings the world of Bitcoin and Ethereum to your doorstep.
-
 
 # Authentication
 
