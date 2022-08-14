@@ -10,6 +10,7 @@ const DEFAULT_BASE_URL: &str = "https://api.luno.com";
 const GET_ACCOUNTS: &str = "/api/1/accounts";
 const GET_BALANCE: &str = "/api/1/balance";
 const GET_TICKER: &str = "/api/1/ticker";
+const GET_TICKERS: &str = "/api/1/tickers";
 const GET_ORDERBOOK: &str = "/api/1/orderbook";
 const GET_ORDERBOOK_TOP: &str = "/api/1/orderbook_top";
 
@@ -134,7 +135,7 @@ impl Luno {
     }
 
     pub async fn get_all_tickers(&self) -> LunoResult<Vec<Tickers>> {
-        let path = Url::parse(format! {"{}{}", self.base_url, "/api/1/tickers"}.as_str())?;
+        let path = Url::parse(format! {"{}{}", self.base_url, GET_TICKERS}.as_str())?;
         let result = self
             .client
             .get_request(path, &self.username, Some(&self.password))
