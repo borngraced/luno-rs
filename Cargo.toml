@@ -1,7 +1,6 @@
-cargo-features = ["edition2021"]
 [package]
 name = "luno-rust-api"
-version = "0.0.1"
+version = "0.1.0"
 authors = ["Samuelonoja <Samuelonoja970@gmail.com>"]
 edition = "2021"
 description = "The Async Rust Luno API brings the world of Bitcoin and Ethereum to your doorstep."
@@ -16,10 +15,13 @@ repository = "https://github.com/borngraced/Luno-API-Client-Rust"
 reqwest = "0.11.10"
 serde = {version="1.0.79", features=["derive"]}
 serde_json = "1.0.79"
-futures = "0.3" # for our async / await blocks
 tokio = { version = "1.12.0", features = ["full"] } # for our async runtime
 dotenv = "0.15.0"
+url = "2.2.2"
 
 [[test]]
 name = "luno"
 path = "src/test/test.rs"
+
+[build]
+rustflags = ["-A", "unused_assignments"]
