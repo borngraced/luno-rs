@@ -1,4 +1,4 @@
-use luno_rust_api::Luno;
+/* use luno_rust_api::Luno;
 use serde_json::json;
 use std::env;
 
@@ -12,3 +12,4 @@ async fn test_luno_async() {
     println!("{:#?}", json!(tickers.as_ref().unwrap())); // data can be serialized to json)
     assert_eq!(true, tickers.is_ok());
 }
+ */

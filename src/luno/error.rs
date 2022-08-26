@@ -7,7 +7,6 @@ pub struct LunoErr {
     pub message: String,
 }
 
-
 #[derive(Debug)]
 pub enum ErrKind {
     InvalidArguments,
