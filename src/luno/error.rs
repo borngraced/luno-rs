@@ -13,7 +13,9 @@ pub enum ErrKind {
     TravelRule,
     Internal,
 }
+
 impl From<Error> for LunoErr {
+    
     fn from(err: Error) -> Self {
         Self {
             kind: ErrKind::Internal,
