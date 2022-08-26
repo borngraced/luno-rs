@@ -1,3 +1,4 @@
+/*
 ///! Rust Luno Api client (async rust)
 ///
 /// INSTALLATION
@@ -24,5 +25,7 @@
 /// ```
 ///
 ///
+
+*/
 mod luno;
 pub use luno::Luno;

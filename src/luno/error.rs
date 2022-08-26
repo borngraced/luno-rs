@@ -7,17 +7,18 @@ pub struct LunoErr {
     pub message: String,
 }
 
-#[allow(clippy::enum_variant_names)]
 #[derive(Debug)]
 pub enum ErrKind {
-    ErrInvalidArguments,
-    ErrTravelRule,
-    ErrInternal,
+    InvalidArguments,
+    TravelRule,
+    Internal,
 }
+
 impl From<Error> for LunoErr {
+    
     fn from(err: Error) -> Self {
         Self {
-            kind: ErrKind::ErrInternal,
+            kind: ErrKind::Internal,
             message: err.to_string(),
         }
     }
@@ -26,7 +27,7 @@ impl From<Error> for LunoErr {
 impl From<String> for LunoErr {
     fn from(err: String) -> Self {
         Self {
-            kind: ErrKind::ErrInvalidArguments,
+            kind: ErrKind::InvalidArguments,
             message: err,
         }
     }
@@ -35,7 +36,7 @@ impl From<String> for LunoErr {
 impl From<ParseError> for LunoErr {
     fn from(err: ParseError) -> Self {
         Self {
-            kind: ErrKind::ErrInternal,
+            kind: ErrKind::Internal,
             message: err.to_string(),
         }
     }

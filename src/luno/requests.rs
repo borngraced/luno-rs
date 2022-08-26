@@ -65,13 +65,13 @@ impl Luno {
                         Ok(e)
                     }
                     Err(err) => Err(LunoErr {
-                        kind: ErrKind::ErrInvalidArguments,
+                        kind: ErrKind::InvalidArguments,
                         message: err.to_string(),
                     }),
                 }
             }
             Err(err) => Err(LunoErr {
-                kind: ErrKind::ErrInvalidArguments,
+                kind: ErrKind::InvalidArguments,
                 message: err.message,
             }),
         }
@@ -92,13 +92,13 @@ impl Luno {
                         Ok(e.get("balance").unwrap().to_vec())
                     }
                     Err(err) => Err(LunoErr {
-                        kind: ErrKind::ErrInvalidArguments,
+                        kind: ErrKind::InvalidArguments,
                         message: err.to_string(),
                     }),
                 }
             }
             Err(err) => Err(LunoErr {
-                kind: ErrKind::ErrInvalidArguments,
+                kind: ErrKind::InvalidArguments,
                 message: err.message,
             }),
         }
@@ -125,7 +125,7 @@ impl Luno {
                         Ok(e)
                     }
                     Err(err) => Err(LunoErr {
-                        kind: ErrKind::ErrInvalidArguments,
+                        kind: ErrKind::InvalidArguments,
                         message: err.to_string(),
                     }),
                 }
@@ -150,7 +150,7 @@ impl Luno {
                         Ok(res.get("tickers").unwrap().to_vec())
                     }
                     Err(err) => Err(LunoErr {
-                        kind: ErrKind::ErrInvalidArguments,
+                        kind: ErrKind::InvalidArguments,
                         message: err.to_string(),
                     }),
                 }
@@ -180,7 +180,7 @@ impl Luno {
                         Ok(e)
                     }
                     Err(err) => Err(LunoErr {
-                        kind: ErrKind::ErrInvalidArguments,
+                        kind: ErrKind::InvalidArguments,
                         message: err.to_string(),
                     }),
                 }
@@ -210,7 +210,7 @@ impl Luno {
                         Ok(e)
                     }
                     Err(err) => Err(LunoErr {
-                        kind: ErrKind::ErrInvalidArguments,
+                        kind: ErrKind::InvalidArguments,
                         message: err.to_string(),
                     }),
                 }
