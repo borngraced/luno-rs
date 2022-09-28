@@ -11,7 +11,7 @@ https://www.luno.com/en/developers/api.
 * tokio
 
 ### Configuration
-
+0. Add to Cargo.toml `luno_rs = "0.1.1"`
 1. Get your api key and secret from luno.com
 2. Create .env file in your project route and configure with:
    ` API_KEY=myapikey`
