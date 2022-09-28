@@ -3,14 +3,14 @@
 ///
 /// INSTALLATION
 /// Add to Cargo.toml
-/// -> luno-rust-api = "0.0.1"
+/// -> luno_rs = "0.1.1"
 ///
 ///
 /// USAGE
 ///  requires a key and secret that can be found in your luno account settings
 ///```rust
 /// use env;
-/// use luno_rust_api::Luno;
+/// use luno_rs::Luno;
 ///
 /// #[tokio::test]
 /// async fn main(){
