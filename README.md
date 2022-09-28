@@ -1,47 +1,22 @@
-# Luno-API-Client-Rust (async)
+# Luno-rs (async)
 
-# V.0.0.1 beta
+The Luno API wrapper written in rust of rust in rust prorgram
+https://www.luno.com/en/developers/api.
 
-https://www.luno.com/en/developers/api
+### Dependencies
 
-The Luno API provides developers with a wealth of financial information provided through the Luno platform. Through this secure system developers can:
+* reqwest
+* serde
+* serde_json
+* tokio
 
-    Create accounts for trading in cryptocurrencies
-    Access current and historic cryptocurrency market data
-    Submit trade orders and view order status
-    Buy and sell Bitcoin and Ethereum
-    Send and receive Bitcoin and Ethereum
-    Generate Bitcoin and Ethereum wallet addresses
-
-The Async Rust Luno API client brings the world of Bitcoin and Ethereum to your doorstep.
-
-
-# Authentication
-
-Some API calls require your application to authenticate itself. This is done using an API key associated with your account. You can create an API key by visiting the API Keys section on the settings page.
-
-An API key consists of a key id and a key secret. For example, cnz2yjswbv3jd (key id) and 0hydMZDb9HRR3Qq-iqALwZtXLkbLR4fWxtDZvkB9h4I (key secret).
-
-API requests are authenticated using HTTP basic authentication with the key id as the username and the key secret as the password. A missing, incorrect or revoked key causes error 401 to be returned.
-
-Each API key is granted a set of permissions when it is created. The key can only be used to call the permitted API functions.
-
-# USAGE
-
-# Dependencies
-
-1. reqwest
-2. serde
-3. serde_json
-4. tokio
-
-## Configuration
+### Configuration
 
 1. Get your api key and secret from luno.com
 2. Create .env file in your project route and configure with:
-   ##### API_KEY=myapikey
-   ##### API_SECRET=myapisecret
-3. import Luno client to your project and initialize `use luno_rust_api::Luno;`
+   ` API_KEY=myapikey`
+   `API_SECRET=myapisecret`
+3. import Luno client to your project and initialize `use luno_rs::Luno;`
 
 ```rust
 #[tokio::test] // any other async runtime can be used, not limited to tokio
@@ -49,21 +24,48 @@ async fn test_luno_async() {
 	dotenv::dotenv().ok();
 	let key = env::var("API_KEY").expect("Api Key doesn't exist yet, please add");
 	let secret = env::var("API_SECRET").expect("Api Key Secret doesn't exist yet, please add");
-	let luno = Luno::init(key, secret).await;
-	let tickers = luno.get_all_balance().await;
-	println!("{:#?}", json!(tickers.as_ref().unwrap())); // data can be serialized to json)
-	assert_eq!(true, tickers.is_ok());
+	let luno = luno_rs::Luno::init(key, secret).await;
+	let balance = luno.get_all_balance().await;
+	assert!(tickers.is_ok());
+    let all_balance: Vec<Balance> = balance.unwrap();
+    print!("{balance:#?}")
 }
 ```
-
 ### Available METHODS regularly (more will be added until completion)
 
-1. create_account()
-2. get_all_balance()
-3. get_ticker(pair: `"XBTNGN"`)
-4. get_all_tickers()
-5. get_full_order_book(pair: `"XBTNGN"`)
-6. get_top_order_book(pair: `"XBTNGN"`)
+### available endpoints
+1. [x] `create_account()`
+2. [x] `get_all_balance()`
+3. [x] `get_ticker(pair: "XBTNGN")`
+4. [x] `get_all_tickers()`
+5. [x] `get_full_order_book(pair: "XBTNGN")`
+6. [x] `get_top_order_book(pair: "XBTNGN")`
+### Todos
+7. [ ] update_account_name
+8. [ ] list_pending_transactions
+9. [ ] list_transactions
+10. [ ] list_account_balances
+11. [ ] list_recent_trades
+12. [ ] get_candles
+13. [ ] get_markets_info
+14. [ ] list_orders
+15. [ ] list_trades
+16. [ ] post_market_order
+17. [ ] get_order
+18. [ ] post_limit_order
+19. [ ] cancel_order
+20. [ ] get_receiver_address
+21. [ ] create_receiver_address
+22. [ ] send
+23. [ ] estimate_send_fee
+24. [ ] list_withdrawal_request
+25. [ ] request_a_withdrawal
+26. [ ] get_withdrawal_request
+27. [ ] cancel_withdrawal_request
+28. [ ] list_transfers
+29. [ ] list_eneficiaries
 
 # CONTRIBUTING
-make us better :)
+feel free to work on any of the todos:)
+
+[https://www.luno.com/en/developers/api](https://www.luno.com/en/developers/api).
