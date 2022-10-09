@@ -17,7 +17,7 @@ impl LunoClientBuilder {
         let mut headers = HeaderMap::new();
         headers.insert(
             reqwest::header::USER_AGENT,
-            "rust-luno-api v0.1".parse().unwrap(),
+            "luno-rs v0.1".parse().unwrap(),
         );
         headers.insert(
             reqwest::header::CONTENT_TYPE,
