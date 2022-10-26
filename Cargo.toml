@@ -1,5 +1,5 @@
 [package]
-name = "luno_rs"
+name = "luno_rust"
 version = "0.1.0"
 authors = ["Samuelonoja <dev@sami.cx>"]
 edition = "2021"
