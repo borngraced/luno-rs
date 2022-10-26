@@ -34,12 +34,12 @@ async fn test_luno_async() {
 ### Available METHODS regularly (more will be added until completion)
 
 ### available endpoints
-1. [x] `create_account()`
-2. [x] `get_all_balance()`
-3. [x] `get_ticker(pair: "XBTNGN")`
-4. [x] `get_all_tickers()`
-5. [x] `get_full_order_book(pair: "XBTNGN")`
-6. [x] `get_top_order_book(pair: "XBTNGN")`
+1. [x] create_account()
+2. [x] get_all_balance()
+3. [x] get_ticker(pair: "XBTNGN")
+4. [x] get_all_tickers()
+5. [x] get_full_order_book(pair: "XBTNGN")
+6. [x] get_top_order_book(pair: "XBTNGN")
 ### Todos
 7. [ ] update_account_name
 8. [ ] list_pending_transactions

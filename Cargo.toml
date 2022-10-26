@@ -1,11 +1,11 @@
 [package]
 name = "luno_rs"
-version = "0.1.1"
-authors = ["Samuelonoja <Samuelonoja970@gmail.com>"]
+version = "0.1.0"
+authors = ["Samuelonoja <dev@sami.cx>"]
 edition = "2021"
-description = "The Async Rust Luno API brings the world of Bitcoin and Ethereum to your doorstep."
+description = "Luno API Wrapper in rust lang."
 keywords = ["bitcoin", "crypto", "api", "web", "luno"]
-categories = ["crypto, api, web"]
+categories = ["api-bindings, web-programming::http-client, asynchronous"]
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/borngraced/luno-rs"
 
