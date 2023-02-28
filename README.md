@@ -26,7 +26,7 @@ async fn test_luno_async() {
 	let secret = env::var("API_SECRET").expect("Api Key Secret doesn't exist yet, please add");
 	let luno = luno_rs::Luno::init(key, secret).await;
 	let balance = luno.get_all_balance().await;
-	assert!(tickers.is_ok());
+	assert!(balance.is_ok());
     let all_balance: Vec<Balance> = balance.unwrap();
     print!("{balance:#?}")
 }
